@@ -37,21 +37,21 @@ class OnlineShoppingApplicationTests {
 		System.out.println(product);
 	}
 
-//	@Test
-//	public void testUpdateCart()
-//	{
-//		Products product = productReporsitory.findById(7).get();
-//		product.setPrice(4050.00);		
-//		System.out.println(product);
-//		productReporsitory.save(product);
-//	}
-//	
-//	@Test
-//	public void testDeleteCartDetails()
-//	{
-//		Products product = new Products();
-//		product.setId(7);	
-//		productReporsitory.delete(product);
-//		System.out.println(product);
-//	}
+	@Test
+	public void testUpdateCart()
+	{
+		Products product = productReporsitory.findById(7).get();
+		product.setPrice(4050.00);		
+		System.out.println(product);
+		productReporsitory.save(product);
+	}
+	
+	@Test
+	public void testDeleteCartDetails()
+	{
+		Products product = new Products();
+		product.setId(7);	
+		productReporsitory.delete(product);
+		System.out.println(product);
+	}
 }
