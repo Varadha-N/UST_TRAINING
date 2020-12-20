@@ -1,0 +1,113 @@
+body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#d36de0ba;  
+    font-family: 'Arial';  
+}  
+.login{  
+        width: 382px;  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 80px;  
+        background: #462335;  
+        border-radius: 15px ;        
+}  
+h2{  
+    text-align: center;  
+    color:black;  
+    padding: 20px;  
+}  
+label{  
+    color: #08ffd1;  
+    font-size: 17px;  
+}  
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    width: 300px;  
+    height: 30px;  
+    border: none;  
+    border-radius: 17px;  
+    padding-left: 7px;  
+    color: blue;  
+  
+  
+}  
+span{  
+    color: white;  
+    font-size: 17px;  
+}  
+a{  
+    float: right;  
+    background-color: grey;  
+}  
+
+
+/* ----------------------- products.css ---------------- */
+
+#products {
+
+}
+#topdeals .prod, #products .prod{
+	text-align: center;
+	float: left;
+	width: 230px;
+	border: 1px solid black;
+	padding: 15px;
+    margin-right: 5px;
+    height: 400px;
+    background-color: #FFFFFF;
+    border-radius: 0.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    margin-bottom: 5px;
+    
+}
+
+
+#products .img, #topdeals .img{
+    padding: 5px;
+    width: 180px;
+    height: 200px;
+}
+#products .title, #topdeals .title{
+	padding: 5px;
+    color: rgb(170, 74, 130);
+    font-size: 0.50em;
+}
+#products .cat, #topdeals .cat{
+	padding: 5px;
+    color: grey;
+    font-size: 0.50em;
+}
+#products .price, #topdeals .price{
+	padding: 5px;
+    color: tomato;
+    font-size: 0.50em;
+}
+
+.clear{
+	clear: both;
+}
+
+.product-title
+{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 100;
+    font-family: cursive;
+}
