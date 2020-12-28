@@ -12,6 +12,7 @@ var db = require('../../db/courses')
 var apiErrors = require('../../util/errors')
 var apiMessages = require('../../util/messages')
 
+var MAX_AGE = 10;
 
 module.exports = function(router){
     'use strict';
@@ -22,6 +23,8 @@ module.exports = function(router){
     //    /v1/Vacations
     router.route(URI).get(function(req, res,next){
         console.log("GET Udemy Courses")
+
+        res.header('Cache-Control', 'public, max-age='+MAX_AGE);
 
         var fields ={}
         if(req.query && req.query.fields !== undefined){
@@ -57,6 +60,8 @@ module.exports = function(router){
     router.route(URI).post(function(req, res,next){
         console.log("POST Udemy  Courses")
 
+        res.header('Cache-Control', 'public, max-age='+MAX_AGE);
+
         //1. Get the data
         var doc = req.body;
 
@@ -75,6 +80,9 @@ module.exports = function(router){
         
     router.route(URI).delete(function(req, res,next){
         console.log("Successfully Removed data");
+
+        res.header('Cache-Control', 'public, max-age='+MAX_AGE);
+
         var criteria = {name:"Varadha"}
         db.delete(criteria,function(err,deleted){
             if(err){
@@ -90,6 +98,10 @@ module.exports = function(router){
 
     router.route(URI).put(function(req,res,next){
         console.log("update data")
+
+        res.header('Cache-Control', 'public, max-age='+MAX_AGE);
+
+
         var criteria = {_id:'5fe88abf70ae561f5ce5c1b8'}
         var doc = req.body;
         db.update(criteria,doc,function(err,updated){
