@@ -202,4 +202,15 @@ var processValidationErrors = function (err) {
     return errorList;
 
 }
+}
+
+function createFields(str){
+    var arr = str.split(',')
+    str = '{'
+    for(var i=0; i < arr.length; i++){
+        str += '\"' + arr[i] + '\":1'
+        if(i < arr.length - 1) str += ","
     }
+    str += '}'
+    return JSON.parse(str)
+}
