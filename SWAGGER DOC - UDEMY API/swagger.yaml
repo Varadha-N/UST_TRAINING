@@ -1,0 +1,185 @@
+swagger: "2.0"
+info: 
+  version: "0.0.1"
+  title:  UDEMY API
+  description: Udemy, Inc. is an American massive open online course (MOOC) provider aimed at professional adults and students. It was founded in May 2010 by Eren Bali, Gagan Biyani, and Oktay Caglar. 
+  
+  contact:
+    name: VARADHA 
+    url: https://www.udemy.com/
+    email: admin@udemy.com
+    
+  license:
+    name: UDEMY - E LEARNING
+    url: https://www.udemy.com/
+    
+host: localhost:3000
+basePath: /v1/
+schemes:
+  - http
+  - https
+
+consumes:
+  - application/json
+#format of the responses to hte client
+produces:
+  - application/json
+
+tags:
+  - name: Courses
+    description: Refer to Courses
+
+externalDocs:
+  description: This is an external doc
+  url: https://www.developer.udemy.api/docs
+  
+
+#this is where the resouse paths are defined
+paths:
+  #api name ustapi
+  /courses:
+    get:
+      summary: This is a get api for courses list
+      description: This page provides the list of available courses.
+        
+      tags:
+        - courses
+      
+      #parameres: There ar eno parameters for this operation
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/courses"
+        "500":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/DataBaseConnectionFaliureError"
+        "404":
+          description: No document found
+          schema:
+            $ref: "#/definitions/NotFoundError"
+    
+    put:
+      summary: This is a put api for courses
+      description: In this page you can update the courses available
+        
+      tags:
+        - courses
+      
+      #parameres: There ar eno parameters for this operation
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/courses"
+        "400":
+          description: Missing data or format mismatch
+          schema:
+            $ref: "#/definitions/courses"
+    
+    post:
+      summary: This is a post api for courses
+      description: In this page you can add new courses
+        
+      tags:
+        - courses
+      
+      #parameres: There ar eno parameters for this operation
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/courses"
+        "400":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/DataBaseConnectionFaliureError"
+        
+    
+    delete:
+      summary: This is a delet api for courses list
+      description: In this page we can delete course from list of courses available
+        
+      tags:
+        - courses
+      
+      #parameres: There ar eno parameters for this operation
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/courses"
+        "500":
+          description: Database connection failed
+          schema:
+            $ref: "#/definitions/DataBaseConnectionFaliureError"
+
+#Definitions
+definitions:
+  #Not Found Error
+  NotFoundError:
+    required:
+      - message
+      - hint
+    properties:
+      message:
+        type: string
+      hint:
+        type: string
+        
+   #Not Connected Error
+  DataBaseConnectionFaliureError:
+    required:
+      - message
+      - hint
+    properties:
+      message:
+        type: string
+      hint:
+        type: string
+    
+  #courses
+  courses:
+    required:
+      - code
+      - name 
+      - description
+      - category 
+      - durationInHours
+      - price
+      - authors 
+      
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      category:
+        type: string
+      durationInHours:
+        type: number
+      price:
+        type: number
+      authors:
+        type: string
+  
+  deliverables:
+    type: array
+    items: 
+      $ref: "#/definitions/contents"
+     
+  
+  contents:
+    required:
+      - title
+      - video
+    properties:
+      title:
+        type: string
+      video:
+        type: string
+        
+  
